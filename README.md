@@ -1,4 +1,4 @@
-# AboutMe - Digital Bio Page
+# About Me - Digital Bio Page
 
 This repository hosts the personal digital bio page for Riley Sydney Adams. It is a single-page lifestyle portfolio designed to showcase creative work, travel history, and personal branding, intended to be linked in social media profiles like Instagram.
 
