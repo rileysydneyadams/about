@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Riley Sydney Adams | Lifestyle Creator</title>
+<meta name="description" content="Digital Content Creator · Lifestyle Influencer · Freelance Creative Consultant — Los Angeles">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+<style>
+/* ============ TOKENS ============ */
+:root{
+  --bg0:#170a14;
+  --bg1:#23101e;
+  --surface:rgba(255,255,255,.045);
+  --surface-strong:rgba(255,255,255,.08);
+  --border:rgba(255,255,255,.1);
+  --text:#fbeef3;
+  --muted:#d9b8c8;
+  --muted-soft:#b393a6;
+  --rose:#ff8fab;
+  --rose-deep:#ef5f8d;
+  --gold:#f4cf92;
+  --lavender:#c79bf0;
+  --grad-1:linear-gradient(135deg,var(--rose) 0%,var(--lavender) 100%);
+  --grad-2:linear-gradient(135deg,var(--gold) 0%,var(--rose) 100%);
+  --shadow:0 20px 60px rgba(0,0,0,.45);
+  --maxw:1180px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+@media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto;} *{animation:none!important;transition:none!important;} }
+
+body{
+  margin:0;
+  background:var(--bg0);
+  color:var(--text);
+  font-family:'Poppins',sans-serif;
+  line-height:1.7;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{font-family:'Playfair Display',serif;margin:0;font-weight:600;letter-spacing:-.01em;}
+p{margin:0 0 1em;color:var(--muted);}
+a{color:inherit;text-decoration:none;}
+.container{max-width:var(--maxw);margin:0 auto;padding:0 6vw;}
+img{max-width:100%;display:block;}
+
+/* ============ FUTURE PHOTO SLOTS ============ */
+/* How to use: upload your image, set the real path in the src attribute
+   (copy it from data-future-src), then remove class "future-photo"
+   (or just add the class "show"). It will appear styled automatically. */
+.future-photo{display:none;}
+.future-photo.show{
+  display:block;width:100%;max-width:280px;margin:28px auto 0;
+  border-radius:24px;border:1px solid var(--border);
+  box-shadow:var(--shadow);object-fit:cover;
+}
+
+/* ============ BACKGROUND ATMOSPHERE ============ */
+.atmosphere{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none;}
+.orb{position:absolute;border-radius:50%;filter:blur(70px);opacity:.35;}
+.orb-1{width:480px;height:480px;background:var(--rose-deep);top:-160px;left:-120px;animation:drift1 22s ease-in-out infinite;}
+.orb-2{width:420px;height:420px;background:var(--lavender);bottom:-140px;right:-100px;animation:drift2 26s ease-in-out infinite;}
+.orb-3{width:320px;height:320px;background:var(--gold);top:40%;left:55%;animation:drift3 19s ease-in-out infinite;}
+@keyframes drift1{0%,100%{transform:translate(0,0)}50%{transform:translate(60px,80px)}}
+@keyframes drift2{0%,100%{transform:translate(0,0)}50%{transform:translate(-50px,-70px)}}
+@keyframes drift3{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-40px,40px) scale(1.15)}}
+.grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.05;
+  background-image:radial-gradient(circle at 1px 1px, #fff 1px, transparent 0);
+  background-size:3px 3px;}
+
+/* ============ PROGRESS BAR ============ */
+.progress{position:fixed;top:0;left:0;height:3px;width:0%;background:var(--grad-1);z-index:100;transition:width .1s;}
+
+/* ============ NAV ============ */
+header.nav{
+  position:fixed;top:0;left:0;right:0;z-index:90;
+  background:rgba(23,10,20,.6);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border);
+}
+.nav-inner{
+  max-width:var(--maxw);margin:0 auto;padding:16px 6vw;
+  display:flex;align-items:center;justify-content:space-between;gap:18px;
+}
+.brand{display:flex;align-items:center;gap:10px;font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:600;}
+.brand-dot{width:9px;height:9px;border-radius:50%;background:var(--grad-1);box-shadow:0 0 14px var(--rose);}
+.nav-links{display:flex;gap:22px;align-items:center;overflow-x:auto;scrollbar-width:none;}
+.nav-links::-webkit-scrollbar{display:none;}
+.nav-links a{font-size:.82rem;letter-spacing:.03em;color:var(--muted);white-space:nowrap;transition:color .25s;}
+.nav-links a:hover{color:var(--rose);}
+.nav-cta{
+  flex:0 0 auto;font-size:.78rem;font-weight:600;padding:9px 18px;border-radius:999px;
+  background:var(--grad-1);color:#1b0c14;white-space:nowrap;box-shadow:0 8px 24px rgba(239,95,141,.35);
+}
+
+/* ---- mobile menu (3-dot toggle) ---- */
+.menu-toggle{
+  display:none;flex:0 0 auto;width:42px;height:42px;border-radius:50%;
+  align-items:center;justify-content:center;cursor:pointer;
+  background:var(--surface);border:1px solid var(--border);
+  transition:border-color .25s,background .25s;
+}
+.menu-toggle:hover{border-color:var(--rose);}
+.menu-toggle .dots{display:flex;flex-direction:column;gap:4px;}
+.menu-toggle .dots span{width:4px;height:4px;border-radius:50%;background:var(--text);display:block;transition:background .25s;}
+.menu-toggle.active .dots span{background:var(--rose);}
+
+.mobile-menu{
+  position:absolute;top:100%;left:0;right:0;z-index:89;
+  background:rgba(23,10,20,.97);backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+  max-height:0;overflow:hidden;
+  transition:max-height .4s ease;
+}
+.mobile-menu.open{max-height:80vh;overflow-y:auto;}
+.mobile-menu nav{display:flex;flex-direction:column;padding:6px 6vw 22px;}
+.mobile-menu a{
+  padding:14px 4px;font-size:.95rem;color:var(--muted);border-bottom:1px solid var(--border);
+  transition:color .25s,padding-left .25s;
+}
+.mobile-menu a:last-child{border-bottom:none;}
+.mobile-menu a:hover{color:var(--rose);padding-left:10px;}
+
+@media (max-width:760px){
+  .nav-links{display:none;}
+  .nav-cta{display:none;}
+  .menu-toggle{display:flex;}
+}
+@media (min-width:761px){
+  .mobile-menu{display:none;}
+}
+
+/* ============ HERO ============ */
+.hero{position:relative;z-index:2;padding:150px 0 90px;min-height:92vh;display:flex;align-items:center;}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center;}
+@media (max-width:880px){.hero-grid{grid-template-columns:1fr;}}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--gold);font-weight:600;margin-bottom:18px;
+}
+.eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--gold);}
+.hero h1{font-size:clamp(2.6rem,5.6vw,4.3rem);line-height:1.05;}
+.hero h1 .accent{
+  background:var(--grad-1);-webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero-role{margin-top:16px;font-size:1.02rem;color:var(--muted);font-weight:500;}
+.hero-role span{color:var(--text);}
+.hero-vibe{margin-top:18px;max-width:480px;font-size:1rem;}
+.hero-ctas{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap;}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;padding:14px 26px;border-radius:999px;font-size:.88rem;
+  font-weight:600;cursor:pointer;border:1px solid transparent;transition:transform .25s,box-shadow .25s;
+}
+.btn:hover{transform:translateY(-2px);}
+.btn-primary{background:var(--grad-1);color:#1b0c14;box-shadow:0 10px 30px rgba(239,95,141,.35);}
+.btn-ghost{background:var(--surface);border-color:var(--border);color:var(--text);}
+.hero-stats{display:flex;gap:28px;margin-top:42px;flex-wrap:wrap;}
+.stat .num{display:block;font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--text);}
+.stat .lbl{font-size:.72rem;color:var(--muted-soft);letter-spacing:.04em;text-transform:uppercase;}
+
+/* Hero visual / profile photo */
+.hero-visual{position:relative;display:flex;justify-content:center;align-items:center;min-height:380px;}
+.photo-ring{
+  position:relative;width:300px;height:300px;border-radius:50%;
+  background:var(--grad-1);padding:6px;animation:spin 16s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg);}}
+.photo-ring-inner{
+  width:100%;height:100%;border-radius:50%;background:var(--bg0);
+  display:flex;align-items:center;justify-content:center;overflow:hidden;
+  animation:spinback 16s linear infinite;
+}
+@keyframes spinback{to{transform:rotate(-360deg);}}
+#profilePhoto{width:100%;height:100%;object-fit:cover;border-radius:50%;}
+.avatar-fallback{
+  display:flex;width:100%;height:100%;align-items:center;justify-content:center;
+  font-family:'Playfair Display',serif;font-size:5rem;color:var(--text);
+  background:linear-gradient(160deg,#3a1a30,#1b0c14);
+}
+.hero-badge{
+  position:absolute;display:flex;align-items:center;gap:10px;padding:10px 16px;border-radius:16px;
+  background:var(--surface-strong);border:1px solid var(--border);backdrop-filter:blur(10px);
+  font-size:.78rem;box-shadow:var(--shadow);animation:float 6s ease-in-out infinite;
+}
+.hero-badge .ico{width:18px;height:18px;flex:0 0 auto;}
+.badge-1{top:6%;left:0%;animation-delay:0s;}
+.badge-2{bottom:8%;right:0%;animation-delay:1.4s;}
+@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
+.sparkle{position:absolute;color:var(--gold);font-size:1.4rem;animation:twinkle 3s ease-in-out infinite;}
+.spk-1{top:2%;right:18%;}
+.spk-2{bottom:4%;left:14%;animation-delay:1.2s;}
+@keyframes twinkle{0%,100%{opacity:.2;transform:scale(.8);}50%{opacity:1;transform:scale(1.15);}}
+.scroll-cue{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);font-size:.7rem;color:var(--muted-soft);letter-spacing:.1em;text-transform:uppercase;}
+
+/* ============ SECTIONS ============ */
+section{position:relative;z-index:2;padding:96px 0;}
+.section-alt{background:linear-gradient(180deg,transparent,rgba(255,255,255,.025),transparent);}
+.s-head{max-width:680px;margin-bottom:48px;}
+.s-num{font-family:'Playfair Display',serif;font-style:italic;color:var(--rose);font-size:1rem;}
+.s-head h2{font-size:clamp(1.9rem,3.6vw,2.8rem);margin-top:8px;}
+.s-lead{margin-top:14px;font-size:1rem;}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease;}
+.reveal.in{opacity:1;transform:none;}
+.stagger-item{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease;}
+.stagger-item.in{opacity:1;transform:none;}
+
+/* chips / bullets */
+.chip-list{display:flex;flex-wrap:wrap;gap:10px;list-style:none;margin:0;padding:0;}
+.chip{
+  font-size:.82rem;padding:9px 16px;border-radius:999px;border:1px solid var(--border);
+  background:var(--surface);color:var(--text);
+}
+.bullets{list-style:none;margin:0;padding:0;display:grid;gap:12px;}
+.bullets li{
+  padding:14px 18px;border-radius:14px;background:var(--surface);border:1px solid var(--border);
+  font-size:.92rem;color:var(--text);position:relative;padding-left:38px;
+}
+.bullets li:before{
+  content:"";position:absolute;left:16px;top:50%;transform:translateY(-50%);
+  width:8px;height:8px;border-radius:50%;background:var(--grad-1);
+}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:36px;}
+@media (max-width:760px){.two-col{grid-template-columns:1fr;}}
+
+/* quote */
+blockquote{
+  font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(1.3rem,2.6vw,1.9rem);
+  color:var(--text);margin:0;line-height:1.4;
+}
+
+/* career cards */
+.role-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+@media (max-width:900px){.role-grid{grid-template-columns:1fr;}}
+.role-card{
+  padding:30px 26px;border-radius:22px;background:var(--surface);border:1px solid var(--border);
+  transition:transform .3s,border-color .3s;
+}
+.role-card:hover{transform:translateY(-6px);border-color:var(--rose);}
+.role-num{font-family:'Playfair Display',serif;font-style:italic;color:var(--gold);font-size:1.3rem;}
+.role-card h3{margin-top:10px;font-size:1.15rem;}
+.role-card p{margin-top:10px;font-size:.88rem;}
+
+/* timeline */
+.tl-item{display:grid;grid-template-columns:120px 1fr;gap:20px;padding:22px 0;border-bottom:1px solid var(--border);}
+.tl-item:last-child{border-bottom:none;}
+.tl-when{font-size:.78rem;color:var(--gold);font-weight:600;letter-spacing:.04em;}
+.tl-item h3{font-size:1.05rem;margin-bottom:6px;}
+.tl-item p{font-size:.9rem;margin:0;}
+@media (max-width:600px){.tl-item{grid-template-columns:1fr;}}
+
+/* family */
+.fam-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px;}
+.fam-card{
+  padding:26px 24px;border-radius:20px;background:var(--surface);border:1px solid var(--border);text-align:left;
+}
+.fam-role{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);}
+.fam-card h3{margin-top:6px;font-size:1.1rem;}
+.fam-meta{font-size:.78rem;color:var(--muted-soft);margin-top:2px;}
+.fam-card p{margin-top:12px;font-size:.86rem;}
+
+/* favorites */
+.fav-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:30px 40px;}
+@media (max-width:700px){.fav-grid{grid-template-columns:1fr;}}
+.fav-grid h4{font-size:.85rem;color:var(--gold);text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px;font-family:'Poppins',sans-serif;font-weight:600;}
+
+/* travel */
+.travel-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px;}
+.travel-card{
+  padding:24px 22px;border-radius:20px;background:var(--surface);border:1px solid var(--border);
+  position:relative;overflow:hidden;
+}
+.travel-card:before{
+  content:"";position:absolute;top:-30px;right:-30px;width:90px;height:90px;border-radius:50%;
+  background:var(--grad-1);opacity:.18;filter:blur(10px);
+}
+.travel-year{font-family:'Playfair Display',serif;font-style:italic;color:var(--rose);font-size:1.1rem;}
+.travel-card h3{margin-top:6px;font-size:1.15rem;}
+.travel-card p{margin-top:8px;font-size:.85rem;}
+
+/* color swatches */
+.swatches{display:flex;gap:12px;flex-wrap:wrap;}
+.swatch{text-align:center;font-size:.7rem;color:var(--muted-soft);}
+.swatch span{display:block;width:42px;height:42px;border-radius:12px;margin-bottom:6px;border:1px solid var(--border);}
+
+/* CTA / connect / footer */
+.connect{
+  position:relative;z-index:2;padding:100px 0 60px;text-align:center;
+}
+.connect h2{font-size:clamp(2rem,4.4vw,3rem);}
+.connect p{max-width:480px;margin:14px auto 36px;}
+.social-row{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;}
+.social-btn{
+  display:flex;align-items:center;gap:10px;padding:14px 24px;border-radius:999px;
+  background:var(--surface);border:1px solid var(--border);font-size:.85rem;font-weight:500;
+  transition:transform .25s,background .25s,border-color .25s;
+}
+.social-btn:hover{transform:translateY(-3px);background:var(--surface-strong);border-color:var(--rose);}
+.social-btn svg{width:20px;height:20px;}
+footer{
+  position:relative;z-index:2;padding:30px 0 50px;text-align:center;
+  font-size:.78rem;color:var(--muted-soft);
+}
+footer .heart{color:var(--rose);}
+</style>
+</head>
+<body>
+
+<!--
+  FUTURE PHOTO SLOTS — how this works:
+  Every section below has a hidden <img class="future-photo" data-future-src="..."> tag.
+  When you have a real photo ready: upload it next to this HTML file (e.g. in an /images folder),
+  then on that <img> tag: set src="images/yourfile.jpg" and add the class "show" (or just remove "future-photo").
+  Example:  <img class="future-photo show" data-future-src="images/early-life.jpg" src="images/early-life.jpg" alt="Early life">
+-->
+
+<div class="atmosphere">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+</div>
+<div class="grain"></div>
+<div class="progress" id="progress"></div>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="brand"><span class="brand-dot"></span> Riley<em>·</em>Adams</div>
+    <nav class="nav-links">
+      <a href="#story">Story</a>
+      <a href="#journey">Journey</a>
+      <a href="#lifestyle">Lifestyle</a>
+      <a href="#family">Family</a>
+      <a href="#favorites">Favorites</a>
+      <a href="#travel">Travel</a>
+    </nav>
+    <a class="nav-cta" href="#connect">Connect</a>
+    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span class="dots"><span></span><span></span><span></span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <nav>
+      <a href="#story">Story</a>
+      <a href="#journey">Journey</a>
+      <a href="#personality">Personality</a>
+      <a href="#interests">Interests</a>
+      <a href="#style">Fashion Style</a>
+      <a href="#talents">Hidden Talents</a>
+      <a href="#lifestyle">Lifestyle</a>
+      <a href="#home-space">My Space</a>
+      <a href="#values">Values &amp; Dreams</a>
+      <a href="#family">Family</a>
+      <a href="#childhood">Childhood</a>
+      <a href="#relationships">Relationships</a>
+      <a href="#favorites">Favorites</a>
+      <a href="#travel">Travel</a>
+      <a href="#connect">Connect</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div class="hero-text reveal">
+      <div class="eyebrow"><span class="dot"></span> Digital Creator · Los Angeles</div>
+      <h1>Riley Sydney <span class="accent">Adams</span></h1>
+      <div class="hero-role">Digital Content Creator · Lifestyle Influencer · <span>Freelance Creative Consultant</span></div>
+      <p class="hero-vibe">Effortlessly chic, creative, travel-loving, modern, and quietly ambitious.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#connect">Let's Connect</a>
+        <a class="btn btn-ghost" href="#story">My Story ↓</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span class="num">Jan 9, 1999</span><span class="lbl">Born</span></div>
+        <div class="stat"><span class="num">West Hollywood, LA</span><span class="lbl">Based In</span></div>
+        <div class="stat"><span class="num">California Minimalism</span><span class="lbl">Style</span></div>
+      </div>
+    </div>
+
+    <div class="hero-visual reveal">
+      <span class="sparkle spk-1">✦</span>
+      <span class="sparkle spk-2">✦</span>
+      <div class="photo-ring">
+        <div class="photo-ring-inner">
+          <img id="profilePhoto" src="images/profile.jpg" alt="Riley Sydney Adams"
+               onerror="this.style.display='none'; document.getElementById('avatarFallback').style.display='flex';">
+          <div id="avatarFallback" class="avatar-fallback" style="display:flex;">R</div>
+        </div>
+      </div>
+      <div class="hero-badge badge-1">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-4.6-9.5-9.1C.6 8.4 2.6 5 6 5c2 0 3.3 1 4 2 .7-1 2-2 4-2 3.4 0 5.4 3.4 3.5 6.9C19 16.4 12 21 12 21Z"/></svg>
+        Quietly Ambitious
+      </div>
+      <div class="hero-badge badge-2">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        Travel · Photography
+      </div>
+    </div>
+  </div>
+  <div class="scroll-cue">Scroll to explore</div>
+</section>
+
+<!-- ============ STORY (Early Life + Education) ============ -->
+<section id="story">
+  <div class="container">
+    <div class="s-head reveal">
+      <div class="s-num">01</div>
+      <h2>My Story</h2>
+      <p class="s-lead">Where the love for aesthetics, photography, and storytelling began.</p>
+    </div>
+
+    <div class="two-col reveal">
+      <div>
+        <h3 style="font-size:1.05rem;color:var(--gold);margin-bottom:10px;">Early Life</h3>
+        <p>I was born on January 9, 1999, in Santa Barbara, California. I grew up in a family that valued creativity and independence. My father worked as an architect specializing in residential design, while my mother taught literature at a local high school.</p>
+        <p>From an early age, I developed an appreciation for aesthetics, photography, and storytelling. Weekend road trips along the California coast and family vacations to national parks played a major role in shaping my love for travel and visual experiences.</p>
+        <p>As a child, I spent countless hours collecting magazines, creating mood boards, and decorating journals with photographs and handwritten notes. Friends and family often noticed my natural eye for colors, fashion, and design.</p>
+        <img class="future-photo" data-future-src="images/early-life.jpg" src="images/early-life.jpg" alt="Early life photo">
+      </div>
+      <div>
+        <h3 style="font-size:1.05rem;color:var(--gold);margin-bottom:10px;">Education</h3>
+        <p>I attended Santa Barbara High School from 2013 to 2017, where I was involved in the photography club and helped organize school events.</p>
+        <p>In 2018, I moved to Los Angeles to pursue higher education and enrolled at the University of Southern California, earning a <strong style="color:var(--text)">Bachelor of Arts in Communication</strong> with a Minor in Visual Design.</p>
+        <p>From 2018 to 2022, I took part in creative projects, student media activities, and several internships in digital marketing and branding — where I became fascinated with the intersection of storytelling, photography, and online culture.</p>
+        <img class="future-photo" data-future-src="images/education.jpg" src="images/education.jpg" alt="Education photo">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ JOURNEY (Early Career + Turning Point + Career Today) ============ -->
+<section id="journey" class="section-alt">
+  <div class="container">
+    <div class="s-head reveal">
+      <div class="s-num">02</div>
+      <h2>My Journey</h2>
+      <p class="s-lead">From a creative agency desk to building a life around content I love making.</p>
+    </div>
+
+    <div class="two-col reveal">
+      <div>
+        <h3 style="font-size:1.05rem;color:var(--gold);margin-bottom:10px;">Early Career</h3>
+        <p>After graduating from USC in 2022, I joined a boutique creative agency in Los Angeles, handling social media management, brand strategy, content planning, visual campaigns, and influencer collaborations. I enjoyed the work, but gradually realized I preferred creating rather than working behind the scenes.</p>
+      </div>
+      <div>
+        <h3 style="font-size:1.05rem;color:var(--gold);margin-bottom:10px;">Turning Point</h3>
+        <p>Around 2022, I began documenting my daily life, fashion inspirations, favorite coffee shops, weekend trips, and apartment décor. A series called <em style="color:var(--text)">"California Weekend Diaries"</em> unexpectedly gained attention, and instead of chasing trends I focused on authenticity, minimalism, and quality storytelling. By 2024, brands started reaching out, and by 2025 I had transitioned into full-time content creation and freelance consulting.</p>
+      </div>
+    </div>
+
+    <h3 style="font-size:1.05rem;color:var(--gold);margin:46px 0 20px;">Career Today</h3>
+    <div class="role-grid reveal-stagger">
+      <div class="role-card stagger-item">
+        <span class="role-num">01</span>
+        <h3>Digital Content Creator</h3>
+        <p>I create lifestyle, travel, fashion, and wellness content for my growing community.</p>
+      </div>
+      <div class="role-card stagger-item">
+        <span class="role-num">02</span>
+        <h3>Freelance Creative Consultant</h3>
+        <p>I work with small brands and startups, helping them sharpen their branding and visual identity.</p>
+      </div>
+      <div class="role-card stagger-item">
+        <span class="role-num">03</span>
+        <h3>Lifestyle Influencer</h3>
+        <p>My content lives at the intersection of everyday routines, travel, fashion, coffee culture, and creative productivity.</p>
+      </div>
+    </div>
+    <img class="future-photo" data-future-src="images/journey.jpg" src="images/journey.jpg" alt="Career journey photo">
+  </div>
+</section>
+
+<!-- ============ PERSONALITY ============ -->
+<section id="personality">
+  <div class="container">
+    <div class="s-head reveal">
+      <div class="s-num">03</div>
+      <h2>Personality</h2>
+      <p class="s-lead">People who know me describe me as —</p>
+    </div>
+    <ul class="chip-list reveal-stagger">
+      <li class="chip stagger-item">Warm and approachable</li>
+      <li class="chip stagger-item">Curious and adventurous</li>
+      <li class="chip stagger-item">Detail-oriented</li>
+      <li class="chip stagger-item">Calm under pressure</li>
+      <li class="chip stagger-item">Quietly ambitious</li>
+      <li class="chip stagger-item">Naturally creative</li>
+      <li class="chip stagger-item">Independent yet deeply loyal to close friends</li>
+    </ul>
+    <p style="margin-top:26px;max-width:560px;">I value meaningful conversations over large crowds, and prefer intimate gatherings rather than glamorous parties.</p>
+    <img class="future-photo" data-future-src="images/personality.jpg" rc="images/personality.jpg" alt="Personality photo">
+  </div>
+</section>
+
+<!-- ============ INTERESTS ============ -->
+<section id="interests" class="section-alt">
+  <div class="container">
+    <div class="s-head reveal">
+      <div class="s-num">04</div>
+      <h2>Interests</h2>
+      <p class="s-lead">The things that fill my days and my camera roll.</p>
+    </div>
+    <ul class="chip-list reveal-stagger">
+      <li class="chip stagger-item">Traveling and discovering hidden destinations</li>
+      <li class="chip stagger-item">Photography</li>
+      <li class="chip stagger-item">Interior design</li>
+      <li class="chip stagger-item">Matcha and specialty coffee culture</li>
+      <li class="chip stagger-item">Reading contemporary fiction</li>
+      <li class="chip stagger-item">Pilates and yoga</li>
+      <li class="chip stagger-item">Beach walks during sunset</li>
+      <li class="chip stagger-item">Collecting vintage cameras</li>
+      <li class="chip stagger-item">Visiting bookstores</li>
+      <li class="chip stagger-item">Listening to indie and acoustic music</li>
+    </ul>
+    <img class="future-photo" data-future-src="images/interests.jpg" src="images/interests.jpg" alt="Interests photo">
+  </div>
+</section>
+
+<!-- ============ FASHION STYLE ============ -->
+<section id="style">
+  <div class="container">
+    <div class="s-head reveal">
+      <div class="s-num">05</div>
+      <h2>Fashion Style</h2>
+      <p class="s-lead">My personal style can best be described as <strong style="color:var(--text)">California Minimalism</strong>.</p>
+    </div>
+    <div class="two-col reveal">
+      <div>
+        <h3 style="font-size:1.05rem;color:var(--gold);margin-bottom:10px;">Common Pieces</h3>
+        <ul class="chip-list">
+          <li class="chip">Silk dresses</li>
+          <li class="chip">Neutral tones</li>
+          <li class="chip">Linen shirts</li>
+          <li class="chip">High-waisted trousers</li>
+          <li class="chip">Gold jewelry</li>
+          <li class="chip">White sneakers</li>
+          <li class="chip">Oversized blazers</li>
+          <li class="chip">Designer handbags</li>
+          <li class="chip">Sunglasses with classic frames</li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="font-size:1.05rem;color:var(--gold);margin-bottom:10px;">Favorite Colors</h3>
+        <div class="swatches">
+          <div class="swatch"><span style="background:#efe6da;"></span>Cream</div>
+          <div class="swatch"><span style="background:#dcc6ad;"></span>Beige</div>
+          <div class="swatch"><span style="background:#fdfdfd;"></span>White</div>
+          <div class="swatch"><span style="background:#6e7a52;"></span>Olive</div>
+          <div class="swatch"><span style="background:#8a6b4d;"></span>Soft Brown</div>
+          <div class="swatch"><span style="background:#171717;"></span>Black</div>
+        </div>
+        <h3 style="font-size:1.05rem;color:var(--gold);margin:24px 0 10px;">Style Philosophy</h3>
+        <blockquote>"Simple pieces, timeless confidence."</blockquote>
+      </div>
+    </div>
+    <img class="future-photo" data-future-src="images/style.jpg" src="images/style.jpg" alt="Fashion style photo">
+  </div>
+</section>
+
+<!-- ============ HIDDEN TALENTS ============ -->
+<section id="talents" class="section-alt">
+  <div class="container">
+    <div class="s-head reveal">
+      <div class="s-num">06</div>
+      <h2>Hidden Talents</h2>
+      <p class="s-lead">Not many people know that I —</p>
+    </div>
+    <ul class="bullets reveal-stagger">
+      <li class="stagger-item">Play the piano surprisingly well.</li>
+      <li class="stagger-item">Have a strong eye for interior styling.</li>
+      <li class="stagger-item">Can edit professional-quality photos myself.</li>
+      <li class="stagger-item">Keep handwritten travel journals from every trip.</li>
+      <li class="stagger-item">Love watercolor painting as a way to relax.</li>
+      <li class="stagger-item">Make excellent homemade pasta and desserts.</li>
+      <li class="stagger-item">Have a talent for discovering unique cafés and boutique hotels.</li>
+    </ul>
+    <img class="future-photo" data-future-src="images/talents.jpg" src="images/talents.jpg" alt="Hidden talents photo">
+  </div>
+</section>
+
+<!-- ============ LIFESTYLE ============ -->
+<section id="lifestyle">
+  <div class="container">
+    <div class="s-head reveal">
+      <div class="s-num">07</div>
+      <h2>Lifestyle</h2>
+      <p class="s-lead">I prefer a balanced lifestyle.</p>
+    </div>
+    <div class="two-col reveal">
+      <div>
+        <h3 style="font-size:1.05rem;color:var(--gold);margin-bottom:10px;">Morning Routine</h3>
+        <ul class="bullets">
+          <li>Wake up around 6:30 AM.</li>
+          <li>Drink matcha or coffee.</li>
+          <li>Journal for ten minutes.</li>
+          <li>Do Pilates or a light workout.</li>
+          <li>Review my content schedule.</li>
+        </ul>
+        <h3 style="font-size:1.05rem;color:var(--gold);margin:24px 0 10px;">Work Style — I usually work from</h3>
+        <ul class="bullets">
+          <li>My home studio setup</li>
+          <li>Cozy cafés in Los Angeles</li>
+          <li>Hotel lounges while traveling</li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="font-size:1.05rem;color:var(--gold);margin-bottom:10px;">Weekends — my ideal weekends include</h3>
+        <ul class="bullets">
+          <li>Farmers markets</li>
+          <li>Brunch with friends</li>
+          <li>Sunset drives along the Pacific Coast Highway</li>
+          <li>Visiting art galleries</li>
+          <li>Reading books by the beach</li>
+        </ul>
+      </div>
+    </div>
+    <img class="future-photo" data-future-src="images/lifestyle.jpg" src="images/lifestyle.jpg" alt="Lifestyle photo">
+  </div>
+</section>
+
+<!-- ============ HOME & SPACE ============ -->
+<section id="home-space" class="section-alt">
+  <div class="container">
+    <div class="s-head reveal">
+      <div class="s-num">08</div>
+      <h2>My Space</h2>
+      <p class="s-lead">My West Hollywood apartment reflects my personality.</p>
+    </div>
+    <div class="two-col reveal">
+      <div>
+        <h3 style="font-size:1.05rem;color:var(--gold);margin-bottom:10px;">The Mood</h3>
+        <ul class="bullets">
+          <li>Warm lighting</li>
+          <li>Neutral colors</li>
+          <li>Modern furniture</li>
+          <li>Large mirrors</li>
+          <li>Indoor plants</li>
+          <li>Shelves filled with books and travel souvenirs</li>
+          <li>A dedicated creative workspace</li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="font-size:1.05rem;color:var(--gold);margin-bottom:10px;">The Details</h3>
+        <ul class="bullets">
+          <li>A neutral beige color palette</li>
+          <li>Large windows with city views</li>
+          <li>Indoor olive trees and plants</li>
+          <li>Marble kitchen countertops</li>
+          <li>Vintage books and magazines</li>
+          <li>A cozy reading corner</li>
+          <li>A dedicated editing studio</li>
+          <li>A walk-in wardrobe</li>
+        </ul>
+      </div>
+    </div>
+    <img class="future-photo" data-future-src="images/home-space.jpg" src="images/home-space.jpg" alt="Home photo">
+  </div>
+</section>
+
+<!-- ============ VALUES & DREAMS + MOTTO ============ -->
+<section id="values">
+  <div class="container">
+    <div class="s-head reveal">
+      <div class="s-num">09</div>
+      <h2>Values &amp; Dream Goals</h2>
+    </div>
+    <div class="two-col reveal">
+      <div>
+        <h3 style="font-size:1.05rem;color:var(--gold);margin-bottom:10px;">I believe in</h3>
+        <ul class="bullets">
+          <li>Creativity over perfection</li>
+          <li>Experiences over possessions</li>
+          <li>Quality over quantity</li>
+          <li>Lifelong learning</li>
+          <li>Maintaining a healthy work-life balance</li>
+          <li>Staying grounded despite success</li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="font-size:1.05rem;color:var(--gold);margin-bottom:10px;">I hope to</h3>
+        <ul class="bullets">
+          <li>Publish a coffee-table photography book.</li>
+          <li>Launch my own lifestyle brand.</li>
+          <li>Design boutique vacation homes.</li>
+          <li>Travel to over fifty countries.</li>
+          <li>Continue inspiring people through creativity and storytelling.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="reveal" style="margin-top:46px;border-left:3px solid var(--rose);padding-left:24px;">
+      <blockquote>"Create beautifully, live intentionally, and never stop exploring."</blockquote>
+      <div style="margin-top:10px;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted-soft);">— Personal Motto</div>
+    </div>
+    <img class="future-photo" data-future-src="images/values.jpg" src="images/values.jpg" alt="Values photo">
+  </div>
+</section>
+
+<!-- ============ FAMILY ============ -->
+<section id="family" class="section-alt">
+  <div class="container">
+    <div class="s-head reveal">
+      <div class="s-num">10</div>
+      <h2>Family Background</h2>
+    </div>
+    <div class="fam-grid reveal-stagger">
+      <div class="fam-card stagger-item">
+        <div class="fam-role">Father</div>
+        <h3>Michael Adams</h3>
+        <div class="fam-meta">Born 1965 · Residential Architect · Santa Barbara, CA</div>
+        <p>He has spent most of his career designing luxury homes and modern coastal residences throughout California. I inherited my appreciation for architecture and interior aesthetics from him.</p>
+        <img class="future-photo" data-future-src="images/father.jpg" src="images/father.jpg" alt="Father photo">
+      </div>
+      <div class="fam-card stagger-item">
+        <div class="fam-role">Mother</div>
+        <h3>Jennifer Adams</h3>
+        <div class="fam-meta">Born 1967 · Literature Teacher</div>
+        <p>She encouraged my love of books, writing, and creativity from an early age. Our relationship remains very close.</p>
+        <img class="future-photo" data-future-src="images/mother.jpg" src="images/mother.jpg" alt="Mother photo">
+      </div>
+      <div class="fam-card stagger-item">
+        <div class="fam-role">Younger Brother</div>
+        <h3>Ethan Adams</h3>
+        <div class="fam-meta">Born 2001 · Software Engineer · San Francisco, CA</div>
+        <p>Ethan works in San Francisco and shares my interest in photography and technology.</p>
+        <img class="future-photo" data-future-src="images/brother.jpg" src="images/brother.jpg" alt="Brother photo">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CHILDHOOD MEMORIES ============ -->
+<section id="childhood">
+  <div class="container">
+    <div class="s-head reveal">
+      <div class="s-num">11</div>
+      <h2>Childhood Memories</h2>
+      <p class="s-lead">Some of my favorite childhood memories include —</p>
+    </div>
+    <ul class="chip-list reveal-stagger">
+      <li class="chip stagger-item">Family road trips along Highway 1</li>
+      <li class="chip stagger-item">Visiting Yosemite National Park</li>
+      <li class="chip stagger-item">Learning piano at age eight</li>
+      <li class="chip stagger-item">Making scrapbooks and travel journals</li>
+      <li class="chip stagger-item">Taking disposable cameras on vacations</li>
+    </ul>
+    <img class="future-photo" data-future-src="images/childhood.jpg" src="images/childhood.jpg" alt="Childhood photo">
+  </div>
+</section>
+
+<!-- ============ RELATIONSHIP HISTORY ============ -->
+<section id="relationships" class="section-alt">
+  <div class="container">
+    <div class="s-head reveal">
+      <div class="s-num">12</div>
+      <h2>Relationship History</h2>
+    </div>
+    <div class="reveal">
+      <div class="tl-item">
+        <div class="tl-when">2018–2021</div>
+        <div>
+          <h3>College Relationship</h3>
+          <p>During my years at USC, I dated a film student who shared my passion for storytelling and photography. As graduation approached, our career paths gradually moved in different directions, and we eventually parted on good terms.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-when">2022–2024</div>
+        <div>
+          <h3>Serious Relationship</h3>
+          <p>After college, I was involved with a creative entrepreneur based in Los Angeles. Although we supported each other's ambitions, demanding schedules and different priorities eventually led us to end the relationship amicably.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-when">Present</div>
+        <div>
+          <h3>Present Status</h3>
+          <p>Single and focused on creativity, travel, and personal growth.</p>
+        </div>
+      </div>
+    </div>
+    <img class="future-photo" data-future-src="images/relationships.jpg" src="images/relationships.jpg" alt="Relationship history photo">
+  </div>
+</section>
+
+<!-- ============ FAVORITES ============ -->
+<section id="favorites">
+  <div class="container">
+    <div class="s-head reveal">
+      <div class="s-num">13</div>
+      <h2>Favorites</h2>
+    </div>
+
+    <div class="reveal">
+      <h3 style="font-size:1.05rem;color:var(--gold);margin-bottom:18px;">Brands</h3>
+      <div class="fav-grid">
+        <div><h4>Fashion</h4><ul class="chip-list"><li class="chip">Chanel</li><li class="chip">Saint Laurent</li><li class="chip">Prada</li><li class="chip">Reformation</li><li class="chip">Aritzia</li></ul></div>
+        <div><h4>Beauty</h4><ul class="chip-list"><li class="chip">Dior Beauty</li><li class="chip">Charlotte Tilbury</li><li class="chip">Rare Beauty</li></ul></div>
+        <div><h4>Technology</h4><ul class="chip-list"><li class="chip">Apple</li><li class="chip">Sony</li><li class="chip">Canon</li></ul></div>
+        <div><h4>Home Décor</h4><ul class="chip-list"><li class="chip">Restoration Hardware</li><li class="chip">West Elm</li><li class="chip">Crate &amp; Barrel</li></ul></div>
+      </div>
+    </div>
+
+    <div class="reveal" style="margin-top:40px;">
+      <h3 style="font-size:1.05rem;color:var(--gold);margin-bottom:18px;">Books</h3>
+      <ul class="chip-list">
+        <li class="chip">Atomic Habits</li>
+        <li class="chip">The Midnight Library</li>
+        <li class="chip">Little Women</li>
+        <li class="chip">The Alchemist</li>
+        <li class="chip">Big Magic</li>
+      </ul>
+    </div>
+
+    <div class="reveal" style="margin-top:40px;">
+      <h3 style="font-size:1.05rem;color:var(--gold);margin-bottom:18px;">Music</h3>
+      <div class="fav-grid">
+        <div><h4>Genres</h4><ul class="chip-list"><li class="chip">Indie Pop</li><li class="chip">Acoustic</li><li class="chip">Jazz</li><li class="chip">Soft Rock</li></ul></div>
+        <div><h4>Artists</h4><ul class="chip-list"><li class="chip">Taylor Swift</li><li class="chip">Lana Del Rey</li><li class="chip">Gracie Abrams</li><li class="chip">Sabrina Carpenter</li><li class="chip">Noah Kahan</li></ul></div>
+      </div>
+    </div>
+    <img class="future-photo" data-future-src="images/favorites.jpg" src="images/favorites.jpg" alt="Favorites photo">
+  </div>
+</section>
+
+<!-- ============ TRAVEL HISTORY ============ -->
+<section id="travel" class="section-alt">
+  <div class="container">
+    <div class="s-head reveal">
+      <div class="s-num">14</div>
+      <h2>Travel History</h2>
+      <p class="s-lead">A passport full of stories.</p>
+    </div>
+    <div class="travel-grid reveal-stagger">
+      <div class="travel-card stagger-item">
+        <div class="travel-year">2018</div><h3>Italy</h3><p>Rome, Florence, Milan</p>
+        <img class="future-photo" data-future-src="images/travel-italy.jpg" src="images/travel-italy.jpg" alt="Italy travel photo">
+      </div>
+      <div class="travel-card stagger-item">
+        <div class="travel-year">2019</div><h3>France</h3><p>Paris and Nice</p>
+        <img class="future-photo" data-future-src="images/travel-france.jpg" src="images/travel-france.jpg" alt="France travel photo">
+      </div>
+      <div class="travel-card stagger-item">
+        <div class="travel-year">2021</div><h3>Greece</h3><p>Santorini and Athens</p>
+        <img class="future-photo" data-future-src="images/travel-greece.jpg" src="images/travel-greece.jpg" alt="Greece travel photo">
+      </div>
+      <div class="travel-card stagger-item">
+        <div class="travel-year">2022</div><h3>Japan</h3><p>Tokyo, Kyoto, Osaka</p>
+        <img class="future-photo" data-future-src="images/travel-japan.jpg" src="images/travel-japan.jpg" alt="Japan travel photo">
+      </div>
+      <div class="travel-card stagger-item">
+        <div class="travel-year">2023</div><h3>Iceland</h3><p>Road Trip and Northern Lights Experience</p>
+        <img class="future-photo" data-future-src="images/travel-iceland.jpg" src="images/travel-iceland.jpg" alt="Iceland travel photo">
+      </div>
+      <div class="travel-card stagger-item">
+        <div class="travel-year">2024</div><h3>Bali</h3><p>Wellness Retreats and Beach Resorts</p>
+        <img class="future-photo" data-future-src="images/travel-bali.jpg" src="images/travel-bali.jpg" alt="Bali travel photo">
+      </div>
+      <div class="travel-card stagger-item">
+        <div class="travel-year">2025</div><h3>Switzerland</h3><p>Mountain Villages and Photography Tours</p>
+        <img class="future-photo" data-future-src="images/travel-switzerland.jpg" src="images/travel-switzerland.jpg" alt="Switzerland travel photo">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONNECT (Contact + Social — final section) ============ -->
+<section class="connect" id="connect">
+  <div class="container reveal">
+    <div class="eyebrow" style="justify-content:center;"><span class="dot"></span> Let's Be Friends</div>
+    <h2>Come Say Hi</h2>
+    <p>Follow along for everyday routines, travel diaries, and a little California minimalism.</p>
+    <div class="social-row">
+      <a class="social-btn" href="https://www.instagram.com" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1"/></svg>
+        Instagram
+      </a>
+      <a class="social-btn" href="https://www.facebook.com" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 9h3V6h-3a4 4 0 0 0-4 4v2H7v3h3v6h3v-6h3l1-3h-4v-2a1 1 0 0 1 1-1Z"/></svg>
+        Facebook
+      </a>
+      <a class="social-btn" href="mailto:abc@gmail.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m3 7 9 6 9-6"/></svg>
+        Email
+      </a>
+    </div>
+    <img class="future-photo" data-future-src="images/connect.jpg" src="images/connect.jpg" alt="Connect photo">
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    Made with <span class="heart">♥</span> by Riley Sydney Adams — West Hollywood, California
+  </div>
+</footer>
+
+<script>
+  // mobile 3-dot menu toggle
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  function closeMobileMenu(){
+    mobileMenu.classList.remove('open');
+    menuToggle.classList.remove('active');
+    menuToggle.setAttribute('aria-expanded','false');
+  }
+  menuToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = mobileMenu.classList.toggle('open');
+    menuToggle.classList.toggle('active', isOpen);
+    menuToggle.setAttribute('aria-expanded', isOpen);
+  });
+  mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMobileMenu));
+  document.addEventListener('click', (e) => {
+    if (mobileMenu.classList.contains('open') && !mobileMenu.contains(e.target) && !menuToggle.contains(e.target)){
+      closeMobileMenu();
+    }
+  });
+  window.addEventListener('resize', () => { if (window.innerWidth > 760) closeMobileMenu(); });
+
+  // scroll progress bar
+  const progress = document.getElementById('progress');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const pct = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+    progress.style.width = pct + '%';
+  });
+
+  // reveal on scroll
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('in');
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+  // staggered groups
+  document.querySelectorAll('.reveal-stagger').forEach(group => {
+    const items = group.querySelectorAll('.stagger-item');
+    const groupObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          items.forEach((item, i) => {
+            setTimeout(() => item.classList.add('in'), i * 80);
+          });
+          groupObserver.disconnect();
+        }
+      });
+    }, { threshold: 0.1 });
+    groupObserver.observe(group);
+  });
+</script>
+
+</body>
+</html>
