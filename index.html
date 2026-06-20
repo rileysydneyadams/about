@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Riley Sydney Adams | Lifestyle Creator</title>
+<title>Riley Sydney Adams | Digital Creator</title>
 <meta name="description" content="Digital Content Creator · Lifestyle Influencer · Freelance Creative Consultant — Los Angeles">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -51,9 +51,6 @@ a{color:inherit;text-decoration:none;}
 img{max-width:100%;display:block;}
 
 /* ============ FUTURE PHOTO SLOTS ============ */
-/* How to use: upload your image, set the real path in the src attribute
-   (copy it from data-future-src), then remove class "future-photo"
-   (or just add the class "show"). It will appear styled automatically. */
 .future-photo{display:none;}
 .future-photo.show{
   display:block;width:100%;max-width:280px;margin:28px auto 0;
@@ -98,7 +95,7 @@ header.nav{
   background:var(--grad-1);color:#1b0c14;white-space:nowrap;box-shadow:0 8px 24px rgba(239,95,141,.35);
 }
 
-/* ---- mobile menu (3-dot toggle) — plain, no transition/animation, pinned with fixed px ---- */
+/* ---- mobile menu  ---- */
 .menu-toggle{
   display:none;position:fixed;top:16px;right:16px;z-index:95;
   width:42px;height:42px;border-radius:50%;
@@ -287,7 +284,7 @@ blockquote{
 .swatch{text-align:center;font-size:.7rem;color:var(--muted-soft);}
 .swatch span{display:block;width:42px;height:42px;border-radius:12px;margin-bottom:6px;border:1px solid var(--border);}
 
-/* CTA / connect / footer */
+/* footer */
 .connect{
   position:relative;z-index:2;padding:100px 0 60px;text-align:center;
 }
@@ -307,7 +304,7 @@ footer{
 }
 footer .heart{color:var(--rose);}
 
-/* ---- back to top arrow — plain, no transition/animation, pinned with fixed px ---- */
+/* ---- back to top arrow ---- */
 .back-to-top{
   position:fixed;right:16px;bottom:24px;z-index:60;
   width:50px;height:50px;border-radius:50%;
@@ -861,7 +858,7 @@ footer .heart{color:var(--rose);}
   </div>
 </section>
 
-<!-- ============ CONNECT (Contact + Social — final section) ============ -->
+<!-- ============ CONNECT ============ -->
 <section class="connect" id="connect">
   <div class="container reveal">
     <div class="eyebrow" style="justify-content:center;"><span class="dot"></span> GET IN TOUCH</div>
@@ -920,7 +917,7 @@ footer .heart{color:var(--rose);}
   });
   window.addEventListener('resize', () => { if (window.innerWidth > 760) closeMobileMenu(); });
 
-  // back to top arrow — visible from Story section onward, hidden near the top
+  // back to top arrow
   const backToTop = document.getElementById('backToTop');
   const storySection = document.getElementById('story');
   function toggleBackToTop(){
