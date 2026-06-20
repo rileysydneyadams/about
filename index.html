@@ -7,7 +7,7 @@
 <meta name="description" content="Digital Content Creator · Lifestyle Influencer · Freelance Creative Consultant — Los Angeles">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 /* ============ TOKENS ============ */
 :root{
@@ -41,7 +41,7 @@ body{
   overflow-x:hidden;
   -webkit-font-smoothing:antialiased;
 }
-h1,h2,h3,h4{font-family:'Playfair Display',serif;margin:0;font-weight:600;letter-spacing:-.01em;}
+h1,h2,h3,h4{font-family:'Ubuntu', sans-serif;margin:0;font-weight:600;letter-spacing:-.01em;}
 p{margin:0 0 1em;color:var(--muted);}
 a{color:inherit;text-decoration:none;}
 .container{max-width:var(--maxw);margin:0 auto;padding:0 6vw;}
@@ -84,7 +84,7 @@ header.nav{
   max-width:var(--maxw);margin:0 auto;padding:16px 6vw;
   display:flex;align-items:center;justify-content:space-between;gap:18px;
 }
-.brand{display:flex;align-items:center;gap:10px;font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:600;}
+.brand{display:flex;align-items:center;gap:10px;font-family:'Ubuntu', sans-serif;font-size:1.15rem;font-weight:600;}
 .brand-dot{width:9px;height:9px;border-radius:50%;background:var(--grad-1);box-shadow:0 0 14px var(--rose);}
 .nav-links{display:flex;gap:22px;align-items:center;overflow-x:auto;scrollbar-width:none;}
 .nav-links::-webkit-scrollbar{display:none;}
@@ -100,10 +100,11 @@ header.nav{
   display:none;flex:0 0 auto;width:42px;height:42px;border-radius:50%;
   align-items:center;justify-content:center;cursor:pointer;
   background:var(--surface);border:1px solid var(--border);
-  opacity:1!important;visibility:visible!important;
+  transition:border-color .25s,background .25s;
 }
+.menu-toggle:hover{border-color:var(--rose);}
 .menu-toggle .dots{display:flex;flex-direction:column;gap:4px;}
-.menu-toggle .dots span{width:4px;height:4px;border-radius:50%;background:var(--text);display:block;}
+.menu-toggle .dots span{width:4px;height:4px;border-radius:50%;background:var(--text);display:block;transition:background .25s;}
 .menu-toggle.active .dots span{background:var(--rose);}
 
 .mobile-menu{
@@ -125,7 +126,7 @@ header.nav{
 @media (max-width:760px){
   .nav-links{display:none;}
   .nav-cta{display:none;}
-  .menu-toggle{display:flex!important;}
+  .menu-toggle{display:flex;}
 }
 @media (min-width:761px){
   .mobile-menu{display:none;}
@@ -156,7 +157,7 @@ header.nav{
 .btn-primary{background:var(--grad-1);color:#1b0c14;box-shadow:0 10px 30px rgba(239,95,141,.35);}
 .btn-ghost{background:var(--surface);border-color:var(--border);color:var(--text);}
 .hero-stats{display:flex;gap:28px;margin-top:42px;flex-wrap:wrap;}
-.stat .num{display:block;font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--text);}
+.stat .num{display:block;font-family:'Ubuntu', sans-serif;font-size:1.2rem;color:var(--text);}
 .stat .lbl{font-size:.72rem;color:var(--muted-soft);letter-spacing:.04em;text-transform:uppercase;}
 
 /* Hero visual / profile photo */
@@ -175,7 +176,7 @@ header.nav{
 #profilePhoto{width:100%;height:100%;object-fit:cover;border-radius:50%;}
 .avatar-fallback{
   display:flex;width:100%;height:100%;align-items:center;justify-content:center;
-  font-family:'Playfair Display',serif;font-size:5rem;color:var(--text);
+  font-family:'Ubuntu', sans-serif;font-size:5rem;color:var(--text);
   background:linear-gradient(160deg,#3a1a30,#1b0c14);
 }
 .hero-badge{
@@ -197,7 +198,7 @@ header.nav{
 section{position:relative;z-index:2;padding:96px 0;}
 .section-alt{background:linear-gradient(180deg,transparent,rgba(255,255,255,.025),transparent);}
 .s-head{max-width:680px;margin-bottom:48px;}
-.s-num{font-family:'Playfair Display',serif;font-style:italic;color:var(--rose);font-size:1rem;}
+.s-num{font-family:'Ubuntu', sans-serif;font-style:italic;color:var(--rose);font-size:1rem;}
 .s-head h2{font-size:clamp(1.9rem,3.6vw,2.8rem);margin-top:8px;}
 .s-lead{margin-top:14px;font-size:1rem;}
 
@@ -227,7 +228,7 @@ section{position:relative;z-index:2;padding:96px 0;}
 
 /* quote */
 blockquote{
-  font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(1.3rem,2.6vw,1.9rem);
+  font-family:'Ubuntu', sans-serif;font-style:italic;font-size:clamp(1.3rem,2.6vw,1.9rem);
   color:var(--text);margin:0;line-height:1.4;
 }
 
@@ -239,7 +240,7 @@ blockquote{
   transition:transform .3s,border-color .3s;
 }
 .role-card:hover{transform:translateY(-6px);border-color:var(--rose);}
-.role-num{font-family:'Playfair Display',serif;font-style:italic;color:var(--gold);font-size:1.3rem;}
+.role-num{font-family:'Ubuntu', sans-serif;font-style:italic;color:var(--gold);font-size:1.3rem;}
 .role-card h3{margin-top:10px;font-size:1.15rem;}
 .role-card p{margin-top:10px;font-size:.88rem;}
 
@@ -276,7 +277,7 @@ blockquote{
   content:"";position:absolute;top:-30px;right:-30px;width:90px;height:90px;border-radius:50%;
   background:var(--grad-1);opacity:.18;filter:blur(10px);
 }
-.travel-year{font-family:'Playfair Display',serif;font-style:italic;color:var(--rose);font-size:1.1rem;}
+.travel-year{font-family:'Ubuntu', sans-serif;font-style:italic;color:var(--rose);font-size:1.1rem;}
 .travel-card h3{margin-top:6px;font-size:1.15rem;}
 .travel-card p{margin-top:8px;font-size:.85rem;}
 
@@ -326,7 +327,7 @@ footer .heart{color:var(--rose);}
 
 <header class="nav">
   <div class="nav-inner">
-    <div class="brand"><span class="brand-dot"></span> <a href="#home">Riley S. Adams</a></div>
+    <div class="brand"><span class="brand-dot"></span> Riley<em>·</em>Adams</div>
     <nav class="nav-links">
       <a href="#story">Story</a>
       <a href="#journey">Journey</a>
@@ -342,7 +343,6 @@ footer .heart{color:var(--rose);}
   </div>
   <div class="mobile-menu" id="mobileMenu">
     <nav>
-      <a href="#home">Top</a>
       <a href="#story">Story</a>
       <a href="#journey">Journey</a>
       <a href="#personality">Personality</a>
@@ -388,13 +388,7 @@ footer .heart{color:var(--rose);}
         <div class="photo-ring-inner">
           <img id="profilePhoto" src="images/profile.jpg" alt="Riley Sydney Adams"
                onerror="this.style.display='none'; document.getElementById('avatarFallback').style.display='flex';">
-          <div id="avatarFallback" class="avatar-fallback" style="display:flex;">
-            <svg viewBox="0 0 100 100" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
-              <rect width="100" height="100" fill="#2c1422"/>
-              <circle cx="50" cy="38" r="17" fill="#5a2f49"/>
-              <path d="M14 92c0-22 16-34 36-34s36 12 36 34Z" fill="#5a2f49"/>
-            </svg>
-          </div>
+          <div id="avatarFallback" class="avatar-fallback" style="display:flex;">R</div>
         </div>
       </div>
       <div class="hero-badge badge-1">
@@ -414,6 +408,7 @@ footer .heart{color:var(--rose);}
 <section id="story">
   <div class="container">
     <div class="s-head reveal">
+      <div class="s-num">01</div>
       <h2>My Story</h2>
       <p class="s-lead">Where the love for aesthetics, photography, and storytelling began.</p>
     </div>
@@ -424,14 +419,14 @@ footer .heart{color:var(--rose);}
         <p>I was born on January 9, 1999, in Santa Barbara, California. I grew up in a family that valued creativity and independence. My father worked as an architect specializing in residential design, while my mother taught literature at a local high school.</p>
         <p>From an early age, I developed an appreciation for aesthetics, photography, and storytelling. Weekend road trips along the California coast and family vacations to national parks played a major role in shaping my love for travel and visual experiences.</p>
         <p>As a child, I spent countless hours collecting magazines, creating mood boards, and decorating journals with photographs and handwritten notes. Friends and family often noticed my natural eye for colors, fashion, and design.</p>
-        <img class="future-photo" data-future-src="images/early-life.jpg" alt="Early life photo">
+        <img class="future-photo" data-future-src="images/early-life.jpg" src="images/early-life.jpg" alt="Early life photo">
       </div>
       <div>
         <h3 style="font-size:1.05rem;color:var(--gold);margin-bottom:10px;">Education</h3>
         <p>I attended Santa Barbara High School from 2013 to 2017, where I was involved in the photography club and helped organize school events.</p>
         <p>In 2018, I moved to Los Angeles to pursue higher education and enrolled at the University of Southern California, earning a <strong style="color:var(--text)">Bachelor of Arts in Communication</strong> with a Minor in Visual Design.</p>
         <p>From 2018 to 2022, I took part in creative projects, student media activities, and several internships in digital marketing and branding — where I became fascinated with the intersection of storytelling, photography, and online culture.</p>
-        <img class="future-photo" data-future-src="images/education.jpg" alt="Education photo">
+        <img class="future-photo" data-future-src="images/education.jpg" src="images/education.jpg" alt="Education photo">
       </div>
     </div>
   </div>
@@ -441,6 +436,7 @@ footer .heart{color:var(--rose);}
 <section id="journey" class="section-alt">
   <div class="container">
     <div class="s-head reveal">
+      <div class="s-num">02</div>
       <h2>My Journey</h2>
       <p class="s-lead">From a creative agency desk to building a life around content I love making.</p>
     </div>
@@ -474,7 +470,7 @@ footer .heart{color:var(--rose);}
         <p>My content lives at the intersection of everyday routines, travel, fashion, coffee culture, and creative productivity.</p>
       </div>
     </div>
-    <img class="future-photo" data-future-src="images/journey.jpg" alt="Career journey photo">
+    <img class="future-photo" data-future-src="images/journey.jpg" src="images/journey.jpg" alt="Career journey photo">
   </div>
 </section>
 
@@ -482,6 +478,7 @@ footer .heart{color:var(--rose);}
 <section id="personality">
   <div class="container">
     <div class="s-head reveal">
+      <div class="s-num">03</div>
       <h2>Personality</h2>
       <p class="s-lead">People who know me describe me as —</p>
     </div>
@@ -495,7 +492,7 @@ footer .heart{color:var(--rose);}
       <li class="chip stagger-item">Independent yet deeply loyal to close friends</li>
     </ul>
     <p style="margin-top:26px;max-width:560px;">I value meaningful conversations over large crowds, and prefer intimate gatherings rather than glamorous parties.</p>
-    <img class="future-photo" data-future-src="images/personality.jpg" alt="Personality photo">
+    <img class="future-photo" data-future-src="images/personality.jpg" rc="images/personality.jpg" alt="Personality photo">
   </div>
 </section>
 
@@ -503,6 +500,7 @@ footer .heart{color:var(--rose);}
 <section id="interests" class="section-alt">
   <div class="container">
     <div class="s-head reveal">
+      <div class="s-num">04</div>
       <h2>Interests</h2>
       <p class="s-lead">The things that fill my days and my camera roll.</p>
     </div>
@@ -518,7 +516,7 @@ footer .heart{color:var(--rose);}
       <li class="chip stagger-item">Visiting bookstores</li>
       <li class="chip stagger-item">Listening to indie and acoustic music</li>
     </ul>
-    <img class="future-photo" data-future-src="images/interests.jpg" alt="Interests photo">
+    <img class="future-photo" data-future-src="images/interests.jpg" src="images/interests.jpg" alt="Interests photo">
   </div>
 </section>
 
@@ -526,6 +524,7 @@ footer .heart{color:var(--rose);}
 <section id="style">
   <div class="container">
     <div class="s-head reveal">
+      <div class="s-num">05</div>
       <h2>Fashion Style</h2>
       <p class="s-lead">My personal style can best be described as <strong style="color:var(--text)">California Minimalism</strong>.</p>
     </div>
@@ -558,7 +557,7 @@ footer .heart{color:var(--rose);}
         <blockquote>"Simple pieces, timeless confidence."</blockquote>
       </div>
     </div>
-    <img class="future-photo" data-future-src="images/style.jpg" alt="Fashion style photo">
+    <img class="future-photo" data-future-src="images/style.jpg" src="images/style.jpg" alt="Fashion style photo">
   </div>
 </section>
 
@@ -566,6 +565,7 @@ footer .heart{color:var(--rose);}
 <section id="talents" class="section-alt">
   <div class="container">
     <div class="s-head reveal">
+      <div class="s-num">06</div>
       <h2>Hidden Talents</h2>
       <p class="s-lead">Not many people know that I —</p>
     </div>
@@ -578,7 +578,7 @@ footer .heart{color:var(--rose);}
       <li class="stagger-item">Make excellent homemade pasta and desserts.</li>
       <li class="stagger-item">Have a talent for discovering unique cafés and boutique hotels.</li>
     </ul>
-    <img class="future-photo" data-future-src="images/talents.jpg" alt="Hidden talents photo">
+    <img class="future-photo" data-future-src="images/talents.jpg" src="images/talents.jpg" alt="Hidden talents photo">
   </div>
 </section>
 
@@ -586,6 +586,7 @@ footer .heart{color:var(--rose);}
 <section id="lifestyle">
   <div class="container">
     <div class="s-head reveal">
+      <div class="s-num">07</div>
       <h2>Lifestyle</h2>
       <p class="s-lead">I prefer a balanced lifestyle.</p>
     </div>
@@ -593,6 +594,7 @@ footer .heart{color:var(--rose);}
       <div>
         <h3 style="font-size:1.05rem;color:var(--gold);margin-bottom:10px;">Morning Routine</h3>
         <ul class="bullets">
+          <li>Wake up around 6:30 AM.</li>
           <li>Drink matcha or coffee.</li>
           <li>Journal for ten minutes.</li>
           <li>Do Pilates or a light workout.</li>
@@ -616,7 +618,7 @@ footer .heart{color:var(--rose);}
         </ul>
       </div>
     </div>
-    <img class="future-photo" data-future-src="images/lifestyle.jpg" alt="Lifestyle photo">
+    <img class="future-photo" data-future-src="images/lifestyle.jpg" src="images/lifestyle.jpg" alt="Lifestyle photo">
   </div>
 </section>
 
@@ -624,6 +626,7 @@ footer .heart{color:var(--rose);}
 <section id="home-space" class="section-alt">
   <div class="container">
     <div class="s-head reveal">
+      <div class="s-num">08</div>
       <h2>My Space</h2>
       <p class="s-lead">My West Hollywood apartment reflects my personality.</p>
     </div>
@@ -654,7 +657,7 @@ footer .heart{color:var(--rose);}
         </ul>
       </div>
     </div>
-    <img class="future-photo" data-future-src="images/home-space.jpg" alt="Home photo">
+    <img class="future-photo" data-future-src="images/home-space.jpg" src="images/home-space.jpg" alt="Home photo">
   </div>
 </section>
 
@@ -662,6 +665,7 @@ footer .heart{color:var(--rose);}
 <section id="values">
   <div class="container">
     <div class="s-head reveal">
+      <div class="s-num">09</div>
       <h2>Values &amp; Dream Goals</h2>
     </div>
     <div class="two-col reveal">
@@ -691,7 +695,7 @@ footer .heart{color:var(--rose);}
       <blockquote>"Create beautifully, live intentionally, and never stop exploring."</blockquote>
       <div style="margin-top:10px;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted-soft);">— Personal Motto</div>
     </div>
-    <img class="future-photo" data-future-src="images/values.jpg" alt="Values photo">
+    <img class="future-photo" data-future-src="images/values.jpg" src="images/values.jpg" alt="Values photo">
   </div>
 </section>
 
@@ -699,6 +703,7 @@ footer .heart{color:var(--rose);}
 <section id="family" class="section-alt">
   <div class="container">
     <div class="s-head reveal">
+      <div class="s-num">10</div>
       <h2>Family Background</h2>
     </div>
     <div class="fam-grid reveal-stagger">
@@ -707,21 +712,21 @@ footer .heart{color:var(--rose);}
         <h3>Michael Adams</h3>
         <div class="fam-meta">Born 1965 · Residential Architect · Santa Barbara, CA</div>
         <p>He has spent most of his career designing luxury homes and modern coastal residences throughout California. I inherited my appreciation for architecture and interior aesthetics from him.</p>
-        <img class="future-photo" data-future-src="images/father.jpg" alt="Father photo">
+        <img class="future-photo" data-future-src="images/father.jpg" src="images/father.jpg" alt="Father photo">
       </div>
       <div class="fam-card stagger-item">
         <div class="fam-role">Mother</div>
         <h3>Jennifer Adams</h3>
         <div class="fam-meta">Born 1967 · Literature Teacher</div>
         <p>She encouraged my love of books, writing, and creativity from an early age. Our relationship remains very close.</p>
-        <img class="future-photo" data-future-src="images/mother.jpg" alt="Mother photo">
+        <img class="future-photo" data-future-src="images/mother.jpg" src="images/mother.jpg" alt="Mother photo">
       </div>
       <div class="fam-card stagger-item">
         <div class="fam-role">Younger Brother</div>
         <h3>Ethan Adams</h3>
         <div class="fam-meta">Born 2001 · Software Engineer · San Francisco, CA</div>
         <p>Ethan works in San Francisco and shares my interest in photography and technology.</p>
-        <img class="future-photo" data-future-src="images/brother.jpg" alt="Brother photo">
+        <img class="future-photo" data-future-src="images/brother.jpg" src="images/brother.jpg" alt="Brother photo">
       </div>
     </div>
   </div>
@@ -731,6 +736,7 @@ footer .heart{color:var(--rose);}
 <section id="childhood">
   <div class="container">
     <div class="s-head reveal">
+      <div class="s-num">11</div>
       <h2>Childhood Memories</h2>
       <p class="s-lead">Some of my favorite childhood memories include —</p>
     </div>
@@ -741,7 +747,7 @@ footer .heart{color:var(--rose);}
       <li class="chip stagger-item">Making scrapbooks and travel journals</li>
       <li class="chip stagger-item">Taking disposable cameras on vacations</li>
     </ul>
-    <img class="future-photo" data-future-src="images/childhood.jpg" alt="Childhood photo">
+    <img class="future-photo" data-future-src="images/childhood.jpg" src="images/childhood.jpg" alt="Childhood photo">
   </div>
 </section>
 
@@ -749,6 +755,7 @@ footer .heart{color:var(--rose);}
 <section id="relationships" class="section-alt">
   <div class="container">
     <div class="s-head reveal">
+      <div class="s-num">12</div>
       <h2>Relationship History</h2>
     </div>
     <div class="reveal">
@@ -774,7 +781,7 @@ footer .heart{color:var(--rose);}
         </div>
       </div>
     </div>
-    <img class="future-photo" data-future-src="images/relationships.jpg" alt="Relationship history photo">
+    <img class="future-photo" data-future-src="images/relationships.jpg" src="images/relationships.jpg" alt="Relationship history photo">
   </div>
 </section>
 
@@ -782,10 +789,12 @@ footer .heart{color:var(--rose);}
 <section id="favorites">
   <div class="container">
     <div class="s-head reveal">
-      <h2>Favorites Brands</h2>
+      <div class="s-num">13</div>
+      <h2>Favorites</h2>
     </div>
 
     <div class="reveal">
+      <h3 style="font-size:1.05rem;color:var(--gold);margin-bottom:18px;">Brands</h3>
       <div class="fav-grid">
         <div><h4>Fashion</h4><ul class="chip-list"><li class="chip">Chanel</li><li class="chip">Saint Laurent</li><li class="chip">Prada</li><li class="chip">Reformation</li><li class="chip">Aritzia</li></ul></div>
         <div><h4>Beauty</h4><ul class="chip-list"><li class="chip">Dior Beauty</li><li class="chip">Charlotte Tilbury</li><li class="chip">Rare Beauty</li></ul></div>
@@ -812,7 +821,7 @@ footer .heart{color:var(--rose);}
         <div><h4>Artists</h4><ul class="chip-list"><li class="chip">Taylor Swift</li><li class="chip">Lana Del Rey</li><li class="chip">Gracie Abrams</li><li class="chip">Sabrina Carpenter</li><li class="chip">Noah Kahan</li></ul></div>
       </div>
     </div>
-    <img class="future-photo" data-future-src="images/favorites.jpg" alt="Favorites photo">
+    <img class="future-photo" data-future-src="images/favorites.jpg" src="images/favorites.jpg" alt="Favorites photo">
   </div>
 </section>
 
@@ -820,37 +829,38 @@ footer .heart{color:var(--rose);}
 <section id="travel" class="section-alt">
   <div class="container">
     <div class="s-head reveal">
+      <div class="s-num">14</div>
       <h2>Travel History</h2>
       <p class="s-lead">A passport full of stories.</p>
     </div>
     <div class="travel-grid reveal-stagger">
       <div class="travel-card stagger-item">
         <div class="travel-year">2018</div><h3>Italy</h3><p>Rome, Florence, Milan</p>
-        <img class="future-photo" data-future-src="images/travel-italy.jpg" alt="Italy travel photo">
+        <img class="future-photo" data-future-src="images/travel-italy.jpg" src="images/travel-italy.jpg" alt="Italy travel photo">
       </div>
       <div class="travel-card stagger-item">
         <div class="travel-year">2019</div><h3>France</h3><p>Paris and Nice</p>
-        <img class="future-photo" data-future-src="images/travel-france.jpg" alt="France travel photo">
+        <img class="future-photo" data-future-src="images/travel-france.jpg" src="images/travel-france.jpg" alt="France travel photo">
       </div>
       <div class="travel-card stagger-item">
         <div class="travel-year">2021</div><h3>Greece</h3><p>Santorini and Athens</p>
-        <img class="future-photo" data-future-src="images/travel-greece.jpg" alt="Greece travel photo">
+        <img class="future-photo" data-future-src="images/travel-greece.jpg" src="images/travel-greece.jpg" alt="Greece travel photo">
       </div>
       <div class="travel-card stagger-item">
         <div class="travel-year">2022</div><h3>Japan</h3><p>Tokyo, Kyoto, Osaka</p>
-        <img class="future-photo" data-future-src="images/travel-japan.jpg" alt="Japan travel photo">
+        <img class="future-photo" data-future-src="images/travel-japan.jpg" src="images/travel-japan.jpg" alt="Japan travel photo">
       </div>
       <div class="travel-card stagger-item">
         <div class="travel-year">2023</div><h3>Iceland</h3><p>Road Trip and Northern Lights Experience</p>
-        <img class="future-photo" data-future-src="images/travel-iceland.jpg" alt="Iceland travel photo">
+        <img class="future-photo" data-future-src="images/travel-iceland.jpg" src="images/travel-iceland.jpg" alt="Iceland travel photo">
       </div>
       <div class="travel-card stagger-item">
         <div class="travel-year">2024</div><h3>Bali</h3><p>Wellness Retreats and Beach Resorts</p>
-        <img class="future-photo" data-future-src="images/travel-bali.jpg" alt="Bali travel photo">
+        <img class="future-photo" data-future-src="images/travel-bali.jpg" src="images/travel-bali.jpg" alt="Bali travel photo">
       </div>
       <div class="travel-card stagger-item">
         <div class="travel-year">2025</div><h3>Switzerland</h3><p>Mountain Villages and Photography Tours</p>
-        <img class="future-photo" data-future-src="images/travel-switzerland.jpg" alt="Switzerland travel photo">
+        <img class="future-photo" data-future-src="images/travel-switzerland.jpg" src="images/travel-switzerland.jpg" alt="Switzerland travel photo">
       </div>
     </div>
   </div>
@@ -876,7 +886,7 @@ footer .heart{color:var(--rose);}
         Email
       </a>
     </div>
-    <img class="future-photo" data-future-src="images/connect.jpg" alt="Connect photo">
+    <img class="future-photo" data-future-src="images/connect.jpg" src="images/connect.jpg" alt="Connect photo">
   </div>
 </section>
 
